@@ -7,3 +7,14 @@
 .MMM-LiveScores .game:last-child {
     border-bottom: none;
 }
+
+.team-logo {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.game-info {
+    display: inline-block;
+    vertical-align: middle;
+}
