@@ -1,0 +1,8 @@
+{
+  "name": "MMM-LiveScores",
+  "version": "1.0.0",
+  "description": "Magic Mirror module for live sports scores.",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
