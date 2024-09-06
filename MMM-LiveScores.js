@@ -3,7 +3,7 @@ Module.register("MMM-LiveScores", {
         updateInterval: 3 * 60 * 1000, // 3 minutes
         leagues: ["MLB", "NFL", "NBA", "NHL"],
         showLogos: true,
-        retainFinalScoresUntil: "09:00"
+        retainFinalScoresUntil: "09:00" // Scores retained until 9 am the next morning
     },
 
     start: function() {
@@ -38,11 +38,27 @@ Module.register("MMM-LiveScores", {
             return wrapper;
         }
 
-        // Loop through scores and create elements for each
         this.scores.forEach((game) => {
             const gameDiv = document.createElement("div");
             gameDiv.className = "game";
-            gameDiv.innerHTML = `${game.homeTeam} vs ${game.awayTeam}: ${game.homeScore} - ${game.awayScore}`;
+
+            if (this.config.showLogos && game.homeLogo && game.awayLogo) {
+                const homeLogo = document.createElement("img");
+                homeLogo.src = game.homeLogo;
+                homeLogo.className = "team-logo";
+                gameDiv.appendChild(homeLogo);
+
+                const awayLogo = document.createElement("img");
+                awayLogo.src = game.awayLogo;
+                awayLogo.className = "team-logo";
+                gameDiv.appendChild(awayLogo);
+            }
+
+            const gameInfo = document.createElement("div");
+            gameInfo.className = "game-info";
+            gameInfo.innerHTML = `${game.homeTeam} vs ${game.awayTeam}: ${game.homeScore} - ${game.awayScore} (${game.status})`;
+            gameDiv.appendChild(gameInfo);
+
             wrapper.appendChild(gameDiv);
         });
 
