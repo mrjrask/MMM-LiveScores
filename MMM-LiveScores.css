@@ -9,12 +9,18 @@
 }
 
 .team-logo {
-    width: 10px;
-    height: 10px;
-    margin-right: 10px;
+    width: 25px;  /* Adjust as necessary */
+    height: 25px;  /* Adjust as necessary */
+    margin-right: 5px;
 }
 
 .game-info {
     display: inline-block;
     vertical-align: middle;
+    font-size: 12px; /* Reduce font size if necessary */
+}
+
+.MMM-LiveScores .game {
+    padding: 5px 0;  /* Adjust padding to fit more games */
+    border-bottom: 1px solid #ccc;
 }
